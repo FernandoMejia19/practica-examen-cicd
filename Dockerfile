@@ -1,5 +1,5 @@
 # ---------- Etapa 1: Build y pruebas ----------
-FROM node:22-alpine AS builder
+FROM node:22-alpine3.22 AS builder
 
 WORKDIR /app
 
@@ -11,8 +11,9 @@ COPY . .
 
 RUN npm test
 
+
 # ---------- Etapa 2: Producción ----------
-FROM node:22-alpine
+FROM node:22-alpine3.22
 
 WORKDIR /app
 
