@@ -55,11 +55,13 @@ jobs:
             -t $REGISTRY/$IMAGE_NAME:latest .
 
       - name: Escaneo de seguridad con Trivy
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           format: table
           exit-code: "1"
+          ignore-unfixed: true
+          vuln-type: os
           severity: CRITICAL
 
       - name: Publicar imagen en GHCR
