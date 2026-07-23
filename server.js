@@ -26,7 +26,11 @@ function createApp() {
       hostname: os.hostname(),
     });
   });
-
+  app.get('/config',(req,res)=>{
+  res.json({
+    apiKeyLoaded: !!process.env.API_KEY
+  });
+});
   app.get('/api/products', (req, res) => {
     res.status(200).json(db.getAll());
   });
