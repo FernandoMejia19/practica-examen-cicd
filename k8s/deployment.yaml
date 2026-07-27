@@ -22,6 +22,8 @@ spec:
     metadata:
       labels:
         app: inventario-app
+      annotations:
+        redeploy: "2026-07-26-01"
 
     spec:
       containers:
